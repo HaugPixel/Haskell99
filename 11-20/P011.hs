@@ -1,10 +1,16 @@
-module P010 where
+module P011 where
 import Data.List
 
-encodeModified arr = [if length x > 1 then (length x, head x) else (head x) | x <- grouped]
-    where grouped = group arr
+data Code = Multiple Int Char | Singular Char deriving Show
+
+encode :: String -> [Code]
+encode [] = []
+encode (x:xs)
+    | length ys > 1 = Multiple (length ys) x : encode yss
+    | otherwise     = Singular x : encode xs
+            where (ys,yss) = break (/=x) xs
 
 main :: IO()
 main = do
     putStrLn "This is the execution of promblem 11"
-    print (encodeModified "aaabbbbcccdeeeeeef")
+    print $ encode "aaabbbbcccdeeeeeef"

@@ -10,8 +10,6 @@ myButLast' [] = error "List is empty"
 myButLast' (x:[]) = error "Cant do on list with one element"
 myButLast' arr = arr !! (length arr -2) 
 
-
-
 main :: IO ()
 main = do
     putStrLn "This is execution of Problem 2"
