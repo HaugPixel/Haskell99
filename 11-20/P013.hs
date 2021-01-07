@@ -1,4 +1,4 @@
-module P012 where
+module P013 where
 import Data.List
 
 dupli:: [a]->[a]
